@@ -3,7 +3,7 @@ import cors from "cors";
 import dotenv from 'dotenv';
 import express, { json } from 'express';
 import mongoose from 'mongoose';
-import routerUser from './routes/userRouter.js';
+import routerUser from './src/routes/userRouter.js';
 dotenv.config();
 
 const MONGO_URI = process.env.MONGO_URI;
@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(json());
 app.set('trust proxy', 1);
 app.use(cookieParser());
-app.use('/api/user', routerUser);
+app.use('/user', routerUser);
 
 // Kết nối MongoDB
 mongoose.connect(MONGO_URI, {
