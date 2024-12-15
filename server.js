@@ -26,7 +26,7 @@ app.use('/user', routerUser);
 mongoose.connect(MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  serverSelectionTimeoutMS: 30000, // Tăng thời gian chờ lên 30 giây
+  serverSelectionTimeoutMS: 29999, // Tăng thời gian chờ lên 30 giây
 }).then(() => {
   console.log('MongoDB connected');
 }).catch((err) => {
