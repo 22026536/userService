@@ -11,10 +11,18 @@ const MONGO_URI = process.env.MONGO_URI;
 const app = express();
 
 
-app.use(cors({
-  origin: 'https://animetangobackend.onrender.com', // Chỉ định frontend được phép
-  methods: ['GET', 'POST'], // Cho phép các phương thức GET và POST
-}));
+function corMw(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*'); // Cho phép tất cả các nguồn
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.header('Access-Control-Allow-Credentials', 'true'); // Cho phép gửi cookie
+  if (req.method === 'OPTIONS') {
+      return res.sendStatus(200); // Xử lý nhanh cho preflight request
+  }
+  next();
+}
+app.use(corMw);
+app.use(cors())
 
 app.use(express.urlencoded({ extended: true }));
 app.use(json());
