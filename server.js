@@ -12,7 +12,7 @@ const app = express();
 
 
 app.use(cors({
-  origin: '*', // Chỉ định frontend được phép
+  origin: 'https://animetangobackend.onrender.com', // Chỉ định frontend được phép
   methods: ['GET', 'POST'], // Cho phép các phương thức GET và POST
 }));
 
