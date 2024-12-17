@@ -47,12 +47,14 @@ const login = async (req, res) => {
                 message: "user",
                 success: true,
                 jwt: token,
+                user_id: user.user_id
             });
         } else {
             return res.json({
                 message: "admin",
                 success: true,
                 jwt: token,
+                user_id: user.user_id
             });
         }
 
