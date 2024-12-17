@@ -73,7 +73,10 @@ export const userInfoUpdate = async (req, res) => {
             {
                 full_name: req.body.name,
                 phone_number: req.body.phone__number,
-                email: req.body.gmail
+                email: req.body.gmail,
+                sex: req.body.sex,
+                date_of_birth: req.body.birthday,
+                japanese_level: req.body.japanese_level
             },
             { new: true } // Trả về tài liệu đã cập nhật
         );
